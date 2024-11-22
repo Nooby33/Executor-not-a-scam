@@ -1,0 +1,55 @@
+-- Create Screen GUI
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "ScriptHubUI"
+ScreenGui.Parent = game.CoreGui -- Makes it appear on the screen
+
+-- Create Main Frame
+local MainFrame = Instance.new("Frame")
+MainFrame.Size = UDim2.new(0, 300, 0, 200)
+MainFrame.Position = UDim2.new(0.5, -150, 0.5, -100)
+MainFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+MainFrame.BorderSizePixel = 0
+MainFrame.Parent = ScreenGui
+
+-- Add Title Label
+local Title = Instance.new("TextLabel")
+Title.Size = UDim2.new(1, 0, 0, 40)
+Title.BackgroundTransparency = 1
+Title.Text = "My Script Hub"
+Title.Font = Enum.Font.SourceSansBold
+Title.TextSize = 20
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.Parent = MainFrame
+
+-- Add Button
+local Button = Instance.new("TextButton")
+Button.Size = UDim2.new(0.8, 0, 0, 30)
+Button.Position = UDim2.new(0.1, 0, 0.3, 0)
+Button.BackgroundColor3 = Color3.fromRGB(50, 150, 50)
+Button.Text = "Click Me!"
+Button.Font = Enum.Font.SourceSans
+Button.TextSize = 18
+Button.TextColor3 = Color3.fromRGB(255, 255, 255)
+Button.Parent = MainFrame
+
+-- Button Functionality
+Button.MouseButton1Click:Connect(function()
+    print("Button clicked!")
+    Button.Text = "Clicked!"
+end)
+
+-- Add Close Button
+local CloseButton = Instance.new("TextButton")
+CloseButton.Size = UDim2.new(0.8, 0, 0, 30)
+CloseButton.Position = UDim2.new(0.1, 0, 0.6, 0)
+CloseButton.BackgroundColor3 = Color3.fromRGB(150, 50, 50)
+CloseButton.Text = "Close"
+CloseButton.Font = Enum.Font.SourceSans
+CloseButton.TextSize = 18
+CloseButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+CloseButton.Parent = MainFrame
+
+-- Close Button Functionality
+CloseButton.MouseButton1Click:Connect(function()
+    ScreenGui:Destroy() -- Closes the UI
+end)
